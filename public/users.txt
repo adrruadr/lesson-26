@@ -21,3 +21,4 @@ User: Adrenaline, Phone: , Date and time: . Barber: Walter White
 User: , Phone: , Date and time: 14 august 2016 23:50. Barber: Walter White
 User: , Phone: , Date and time: . Barber: Walter White
 User: Adrenaline, Phone: , Date and time: . Barber: Walter White
+User: Adrenaline, Phone: 752-11-10, Date and time: 14 august 2016 23:50. Barber: Gus Fring
