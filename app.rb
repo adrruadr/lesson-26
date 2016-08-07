@@ -48,10 +48,7 @@ configure do
 
       seed_db db, ['Walter White', 'Jessie Pinkman', 'Gus Fring', 'Mike Ehrmantraut']
   
-  # db.execute 'INSERT OR REPLACE INTO barbers (username) VALUES("Walter White")'
-  # db.execute 'INSERT OR REPLACE INTO barbers (username) VALUES("Walter White")'
-  # db.execute 'INSERT OR REPLACE INTO barbers (username) VALUES("Jessie Pinkman")'
-  # db.execute 'INSERT OR REPLACE INTO barbers (username) VALUES("Gus Fring")'
+
 end
 
 helpers do
@@ -59,6 +56,13 @@ helpers do
     session[:identity] ? session[:identity] : 'Hello stranger !!!'
   end
 end
+
+before  do
+    db = get_db
+    @barber_results = db.execute 'select * from barbers'
+  end
+
+ 
 
 before '/secure/*' do
   unless session[:identity]
@@ -158,7 +162,10 @@ else
 
   erb "Dear #{@username}, we'll be waiting you near #{@date_time}. Your barber: #{@barber_select}! Your hair'll be #{@color}"
   end
+
   
+
+ 
 
 end
 

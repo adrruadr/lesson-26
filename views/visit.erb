@@ -30,9 +30,12 @@ $(function(){
           <label>К кому вы хотите записаться?</label><br>
           <select name="barber_select" class="form-control">
          
-          <option <%= @barber_select == 'Walter White' ? 'selected' : ''%> >Walter White</option>
-          <option <%= @barber_select == 'Jessie Pinkman' ? 'selected' : ''%> >Jessie Pinkman</option>
-          <option <%= @barber_select == 'Gus Fring' ? 'selected' : ''%> >Gus Fring</option>
+         <% @barber_results.each do |item| %>
+          <option <%= @barber_select == item['name'] ? 'selected' : '' %>> <%= item['name'] %></option>
+          <% end %>
+
+
+
       </select>
       </div>
 
