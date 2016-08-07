@@ -44,10 +44,11 @@
 			  </div>
 			  <div class="navbar-collapse collapse">
 			    <ul class="nav navbar-nav">
-			      <li><a href="/about">About</a></li>
-			      <li><a href="/visit">Visit</a></li>
-			      <li><a href="/contact">Contact</a></li>
-			      <li><a href="/showusers">showusers</a></li>
+			      <li><a href="/about">О нас</a></li>
+			      <li><a href="/visit">Запись на визит</a></li>
+			      <li><a href="/showusers">Список записавшихся</a></li>
+			      <li><a href="/contact">Контакты</a></li>
+			      
 			    </ul>
 			    <ul class="nav navbar-nav navbar-right">
 			        <li class="dropdown">
@@ -64,7 +65,7 @@
 			</nav>
 
 			<div>
-			      <%if @error then %>
+			      <%if @error && @error.length > 0 then %>
 			          <div class="alert alert-danger"><%=@error%></div>
 			      <% end %>
 			      <%= yield %>

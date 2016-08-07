@@ -160,7 +160,7 @@ else
   db = get_db
   db.execute 'insert into users (username,phone,date_stamp,barber,color) values(?, ?, ?, ?, ?)',[@username, @phone, @date_time, @barber_select, @color]
 
-  erb "Dear #{@username}, we'll be waiting you near #{@date_time}. Your barber: #{@barber_select}! Your hair'll be #{@color}"
+  erb "Спасибо, вы записались!"
   end
 
   
