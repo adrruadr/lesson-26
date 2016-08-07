@@ -9,6 +9,22 @@ def get_db
   return db
   end
 
+  def is_barber_exists? db, name
+    db.execute('select * from barbers where name=?', [name]).length > 0
+  end
+
+  def seed_db db, barbers
+
+    barbers.each do |barber|
+        if !is_barber_exists? db, barber
+        db.execute 'insert into barbers (name) values (?)', [barber]
+       end
+    end
+
+
+  end
+
+
 configure do
   enable :sessions
   db = get_db
@@ -27,8 +43,10 @@ configure do
     "barbers"
       (
       "id" INTEGER PRIMARY KEY AUTOINCREMENT,
-      "username" TEXT UNIQUE
+      "name" TEXT 
       ) '
+
+      seed_db db, ['Walter White', 'Jessie Pinkman', 'Gus Fring', 'Mike Ehrmantraut']
   
   # db.execute 'INSERT OR REPLACE INTO barbers (username) VALUES("Walter White")'
   # db.execute 'INSERT OR REPLACE INTO barbers (username) VALUES("Walter White")'

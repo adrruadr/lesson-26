@@ -1,9 +1,17 @@
-<table class="table table-bordered">
- 
+<table class="table table-striped">
+<thead>
+  	<tr>
+ 		<th>Имя</th>
+ 		<th>Телефон</th>
+ 		<th>Дата и время</th>
+ 		<th>Барбер</th>
+ 		<th>Цвет</th>
+ 	</tr>
+</thead>
+
 <% @results.each do |row| %>
 
-
-
+<tbody>
  	<tr>
  		<td><%= row['username'] %></td>
  		<td><%= row['phone'] %></td>
@@ -12,6 +20,8 @@
  		<td><%= row['color'] %></td>
  	</tr>
 <% end %>
+</tbody>
+
 </table>
 
 
