@@ -1,0 +1,23 @@
+User: Adrenaline, Phone: 752-11-10, Date and time: 14 august 2016 23:50 
+User: Skul, Phone: 752-11-10, Date and time: 25/04/2017 00:30 
+User: Drewoko, Phone: 666-33-22, Date and time: 25/04/2017 00:30 
+User: Shr, Phone: 777-55-33, Date and time: 25/03/2017 01:30. Barber: Gus Fring 
+User: Mama, Phone: 222-33-11, Date and time: 25/02/2017 12:30:00. Barber: Walter White
+User: Adrenaline, Phone: 752-11-10, Date and time: 14 august 2016 23:50. Barber: Gus Fring
+User: Adrenaline, Phone: 666-33-22, Date and time: 25/04/2017 00:30. Barber: Jessie Pinkman
+User: , Phone: , Date and time: . Barber: Walter White
+User: , Phone: , Date and time: . Barber: Walter White
+User: , Phone: , Date and time: . Barber: Walter White
+User: Adrenaline, Phone: , Date and time: . Barber: Walter White
+User: Adrenaline, Phone: , Date and time: . Barber: Walter White
+User: , Phone: , Date and time: 14 august 2016 23:50. Barber: Walter White
+User: Adrenaline, Phone: , Date and time: 14 august 2016 23:50. Barber: Walter White
+User: , Phone: , Date and time: . Barber: Walter White
+User: , Phone: , Date and time: . Barber: Walter White
+User: , Phone: , Date and time: . Barber: Walter White
+User: , Phone: , Date and time: . Barber: Walter White
+User: , Phone: , Date and time: . Barber: Walter White
+User: Adrenaline, Phone: , Date and time: . Barber: Walter White
+User: , Phone: , Date and time: 14 august 2016 23:50. Barber: Walter White
+User: , Phone: , Date and time: . Barber: Walter White
+User: Adrenaline, Phone: , Date and time: . Barber: Walter White
