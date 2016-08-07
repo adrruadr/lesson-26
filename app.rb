@@ -3,11 +3,14 @@ require 'sinatra'
 require 'sinatra/reloader'
 require 'sqlite3'
 
+def get_db
+  return SQLite3::Database.new 'barbershop.db'
+  end
 
 configure do
   enable :sessions
-  @db = SQLite3::Database.new 'barbershop.db'
-  @db.execute 'CREATE TABLE IF NOT EXISTS
+  db = get_db
+  db.execute 'CREATE TABLE IF NOT EXISTS
     "users"
       (
       "id" INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -108,9 +111,11 @@ post '/visit' do
       return erb :visit
     
 else
-  f = File.open './public/users.txt', 'a'
-  f.write "User: #{@username}, Phone: #{@phone}, Date and time: #{@date_time}. Barber: #{@barber_select}\n"
-  f.close
+  # f = File.open './public/users.txt', 'a'
+  #  f.write "User: #{@username}, Phone: #{@phone}, Date and time: #{@date_time}. Barber: #{@barber_select}\n"
+  #  f.close
+  db = get_db
+  db.execute 'insert into users (username,phone,date_stamp,barber,color) values(?, ?, ?, ?, ?)',[@username, @phone, @date_time, @barber_select, @color]
 
   erb "Dear #{@username}, we'll be waiting you near #{@date_time}. Your barber: #{@barber_select}! Your hair'll be #{@color}"
   end
@@ -133,4 +138,6 @@ post '/contact' do
   erb :complete
 
 end
+
+
 
