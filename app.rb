@@ -4,12 +4,15 @@ require 'sinatra/reloader'
 require 'sqlite3'
 
 def get_db
-  return SQLite3::Database.new 'barbershop.db'
+  db = SQLite3::Database.new 'barbershop.db'
+  db.results_as_hash = true
+  return db
   end
 
 configure do
   enable :sessions
   db = get_db
+  
   db.execute 'CREATE TABLE IF NOT EXISTS
     "users"
       (
@@ -20,7 +23,17 @@ configure do
       "barber" TEXT,
       "color" TEXT
       ) '
-
+  db.execute 'CREATE TABLE IF NOT EXISTS
+    "barbers"
+      (
+      "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+      "username" TEXT UNIQUE
+      ) '
+  
+  # db.execute 'INSERT OR REPLACE INTO barbers (username) VALUES("Walter White")'
+  # db.execute 'INSERT OR REPLACE INTO barbers (username) VALUES("Walter White")'
+  # db.execute 'INSERT OR REPLACE INTO barbers (username) VALUES("Jessie Pinkman")'
+  # db.execute 'INSERT OR REPLACE INTO barbers (username) VALUES("Gus Fring")'
 end
 
 helpers do
@@ -68,6 +81,19 @@ get '/contact' do
 
 end
 
+get '/showusers' do
+  db = get_db
+  @row = 'list: <br>'
+  db.execute 'select * from users order by id desc' do |row| 
+     @row = @row + '----------------------------- <br>'
+     @row = @row + row['username'] + ' ' + row['phone'] + ' ' + row['date_stamp'] + ' ' + row['barber'] + ' ' + row['color'] + '<br>'  
+     @row = @row + '----------------------------- <br>'
+  end
+
+  erb :showusers
+
+end
+
 post '/login/attempt' do
 	
 	@password = params[:password]
@@ -111,9 +137,7 @@ post '/visit' do
       return erb :visit
     
 else
-  # f = File.open './public/users.txt', 'a'
-  #  f.write "User: #{@username}, Phone: #{@phone}, Date and time: #{@date_time}. Barber: #{@barber_select}\n"
-  #  f.close
+
   db = get_db
   db.execute 'insert into users (username,phone,date_stamp,barber,color) values(?, ?, ?, ?, ?)',[@username, @phone, @date_time, @barber_select, @color]
 
