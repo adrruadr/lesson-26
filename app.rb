@@ -82,13 +82,10 @@ get '/contact' do
 end
 
 get '/showusers' do
+
   db = get_db
-  @row = 'list: <br>'
-  db.execute 'select * from users order by id desc' do |row| 
-     @row = @row + '----------------------------- <br>'
-     @row = @row + row['username'] + ' ' + row['phone'] + ' ' + row['date_stamp'] + ' ' + row['barber'] + ' ' + row['color'] + '<br>'  
-     @row = @row + '----------------------------- <br>'
-  end
+
+  @results = db.execute 'select * from users order by id desc'
 
   erb :showusers
 

@@ -1,1 +1,18 @@
-<%= @row %>
+<table class="table table-bordered">
+ 
+<% @results.each do |row| %>
+
+
+
+ 	<tr>
+ 		<td><%= row['username'] %></td>
+ 		<td><%= row['phone'] %></td>
+ 		<td><%= row['date_stamp'] %></td>
+ 		<td><%= row['barber'] %></td>
+ 		<td><%= row['color'] %></td>
+ 	</tr>
+<% end %>
+</table>
+
+
+
